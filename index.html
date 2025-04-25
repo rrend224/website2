@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKINOGAWA KOMUTEN</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Meiryo', 'Yu Gothic', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            font-size: 14px;
+        }
+        
+        /* Hero Section with Parallax */
+        .hero {
+            height: 100vh;
+            background-image: url('#');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #333;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        
+        .service-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .service-item h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        /* Parallax Divider 1 */
+        .parallax-divider-1 {
+            height: 300px;
+            background-image: url('#');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Custom Homes Section */
+        .custom-homes {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+        
+        .custom-homes .section-title:after {
+            background-color: white;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        
+        .news-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        .news-date {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        /* Parallax Divider 2 */
+        .parallax-divider-2 {
+            height: 300px;
+            background-image: url('#');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .business-hours {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .services-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">TAKINOGAWA</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">新策' 注文住宅</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Parallax -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>滝野川工務店の家づくり</h1>
+            <p>WEE, EDUITLT BDEUORMGITKEDELES BMEBS</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <p>FEAROMCT., CLRAVYALT IFHAb BME</p>
+            <p>REMIT SD, CLPRIWUIV YI UTHIHAb BME L TK KREY, MEO CH</p>
+            <p>BEES S ILS TCSEESF. HR-AR-LVeMTLE YD, CHIT TAARBANHLELED.</p>
+            <p>PT AUVbEREL, FYALOARA YW</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Service 1</h3>
+                <p>FEALOBMCS, CLBAYVYVILT [FHA HE |</p>
+            </div>
+            <div class="service-item">
+                <h3>Service 2</h3>
+                <p>BEART Sd. BRIMIYV ID LTH HA b eM U</p>
+            </div>
+            <div class="service-item">
+                <h3>Service 3</h3>
+                <p>CK PAY, MEOERT AV ERE, FHFAROAZRAW REGS Z Ca o H-AN—-YRHTLRY. A</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Divider 1 -->
+    <div class="parallax-divider-1"></div>
+
+    <!-- Custom Homes Section -->
+    <section class="custom-homes">
+        <h2 class="section-title">新策' 注文住宅</h2>
+        <div class="about-content">
+            <p>FEALOPCH. CLRAVYVALT [FHA BH | BRI VIYYVAILTHHEA b & hie U</p>
+            <p>o LFOEPTAVbheeE, FFANOARAW</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <h2 class="section-title">News</h2>
+        <div class="news-grid">
+            <div class="news-item">
+                <div class="news-date">2021年7月10日</div>
+                <p>43 Fl 5 At np Pea SE IRF IA ZS HD Jo A</p>
+            </div>
+            <div class="news-item">
+                <div class="news-date">2021年6月10日</div>
+                <p>在工事例克追加岂未忆大。</p>
+            </div>
+            <div class="news-item">
+                <div class="news-date">2021年5月10日</div>
+                <p>本一人只一艺丰作成由未大。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Divider 2 -->
+    <div class="parallax-divider-2"></div>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <p>TEL: 12-3456-7890</p>
+            <p>to RUB IC FS TH tt ¢ FES UO,</p>
+            <p>PR 注文住宅总由了才一和、去四他扒气轻亿</p>
+            <p>Bim ERMLIL A 7 a—-HEY CMR RaW.</p>
+        </div>
+        <div class="business-hours">営業時間: 9:00~18:00</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">TAKINOGAWA</div>
+            <div class="footer-links">
+                <a href="#">Bre + 注文住宅</a>
+                <a href="#">和社案</a>
+                <a href="#">AS</a>
+                <a href="#">Jol att</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2035 by TAKINOGAWA KOMUTEN Wix.com % (#3 TFS HELI | fle] AR 77 BF | Cookie (Fy¥—-) HY Y—
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+            } else {
+                header.style.padding = '10px 0';
+            }
+        });
+        
+        // Parallax effect initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add more sophisticated parallax effects here if needed
+            // For now, the CSS background-attachment: fixed handles the parallax
+        });
+    </script>
+</body>
+</html>
