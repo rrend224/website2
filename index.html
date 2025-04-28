@@ -5,163 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAMPLE KOMUTEN</title>
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Meiryo', 'Yu Gothic', sans-serif;
-        }
-        
-        body {
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 10px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-            font-size: 14px;
-        }
-        
-        /* Hero Section with Parallax */
-        .hero {
-            height: 100vh;
-            background-image: url('img/1.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 60px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background-color: #333;
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-        }
-        
-        .service-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .service-item h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-        
-        /* Parallax Divider 1 */
-        .parallax-divider-1 {
-            height: 300px;
-            background-image: url('img/2.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Custom Homes Section */
+                /* Custom Homes Section */
         .custom-homes {
             padding: 80px 0;
             text-align: center;
@@ -201,21 +45,37 @@
             color: #777;
             margin-bottom: 10px;
         }
-        
-     .container {
-            display: flex;
-            gap: 20px;
+
+        /* New Section - 新案・注文住宅 リフォーム */
+        .home-types {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #f9f9f9;
         }
         
-        .heading {
+        .types-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .type-heading {
             font-size: 24px;
             font-weight: bold;
             color: #333;
             padding: 10px 20px;
             position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .heading:after {
+        .type-heading:hover {
+            color: #555;
+        }
+        
+        .type-heading:after {
             content: "";
             position: absolute;
             left: 0;
@@ -223,6 +83,11 @@
             width: 100%;
             height: 3px;
             background-color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .type-heading:hover:after {
+            background-color: #555;
         }
         
         /* Contact Section */
@@ -230,59 +95,6 @@
             padding: 80px 0;
             text-align: center;
             background-color: #f9f9f9;
-        }
-        
-        .contact-info {
-            margin-top: 40px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
-        }
-        
-        .business-hours {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .copyright {
-            margin-top: 20px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .services-grid, .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            nav ul li {
-                margin-left: 15px;
-                font-size: 12px;
-            }
         }
     </style>
 </head>
@@ -373,10 +185,15 @@
         </div>
     </section>
 
-   <div class="container">
-        <div class="heading">新案・注文住宅</div>
-        <div class="heading">リフォーム</div>
-    </div>
+  <!-- Home Types Section -->
+    <section class="home-types">
+        <h2 class="section-title">住宅タイプ</h2>
+        <div class="types-container">
+            <div class="type-heading">新案・注文住宅</div>
+            <div class="type-heading">リフォーム</div>
+        </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section class="contact">
